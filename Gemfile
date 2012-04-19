@@ -7,6 +7,7 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'awesome_print'
+gem "paperclip", "~> 3.0"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

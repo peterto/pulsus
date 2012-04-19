@@ -47,6 +47,7 @@ GEM
       capybara (~> 1.0)
     childprocess (0.3.1)
       ffi (~> 1.0.6)
+    cocaine (0.2.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -90,6 +91,12 @@ GEM
       tzinfo (~> 0.3.22)
     multi_json (1.2.0)
     nokogiri (1.5.2)
+    paperclip (3.0.2)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (>= 0.0.2)
+      mime-types
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -178,6 +185,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   mongoid (~> 2.4)
+  paperclip (~> 3.0)
   rails (= 3.2.1)
   rspec-rails (= 2.7)
   sass-rails (~> 3.2.3)
