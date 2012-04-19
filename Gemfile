@@ -21,7 +21,7 @@ group :assets do
 end
 
 group :test, :development do
-  gem 'rspec-rails', '2.7'
+  gem 'rspec-rails', '2.9'
   gem 'database_cleaner'
   gem 'fabrication'
   gem 'capybara', '>= 1.1.2'
