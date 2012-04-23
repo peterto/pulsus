@@ -3,11 +3,12 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.1'
 gem 'mongoid', '~> 2.4'
 gem 'bson_ext', '~> 1.5'
-gem 'haml-rails'
+# gem 'haml-rails'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'awesome_print'
 gem "paperclip", "~> 3.0"
+gem 'devise'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -30,6 +31,10 @@ group :test, :development do
   gem 'ffaker'
   gem 'spork'
   gem 'shoulda-matchers'
+  gem 'mongoid-rspec'
+  # gem 'guard-rspec'
+  # gem 'guard'
+  # gem 'growl'
 end
 
 # To use ActiveModel has_secure_password
