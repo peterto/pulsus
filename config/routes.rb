@@ -1,11 +1,10 @@
 Flickarr::Application.routes.draw do
-  get "home/index"
+  root :to => "home#index"
 
   devise_for :users
 
-  resources :users
-  root :to => "Users#index"
-  
+  resources :users, :only => :show
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
