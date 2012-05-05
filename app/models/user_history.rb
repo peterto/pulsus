@@ -3,4 +3,6 @@ class UserHistory
   field :long, :type => String
   field :lat, :type => String
   field :mood, :type => String
+  field :published_on, :type => Date
+  
 end

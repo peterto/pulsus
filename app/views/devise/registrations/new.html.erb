@@ -6,6 +6,9 @@
   <div class="inputs">
     <p><%= f.label :name %><br />
      <%= f.text_field :name %></p>
+    <p><%= f.label :username %><br />
+      <%= f.input :username %></p>
+    
     <%= f.input :email, :required => true, :autofocus => true %>
     <%= f.input :password, :required => true %>
     <%= f.input :password_confirmation, :required => true %>

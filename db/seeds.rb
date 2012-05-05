@@ -9,17 +9,17 @@
 puts 'EMPTY THE MONGODB DATABASE'
 Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
 puts 'SETTING UP DEFAULT USER LOGIN'
-user = User.create! :name => 'First User', :email => 'user@example.com', :password => 'please', :password_confirmation => 'please'
+user = User.create! :name => 'First User', :username => 'username1', :email => 'user@example.com', :password => 'please', :password_confirmation => 'please'
 puts 'New user created: ' << user.name
-user = User.create! :name => 'Second User', :email => 'user2@example.com', :password => 'please', :password_confirmation => 'please'
+user = User.create! :name => 'Second User', :username => 'username2', :email => 'user2@example.com', :password => 'please', :password_confirmation => 'please'
 puts 'New user created: ' << user.name
-user = User.create! :name => 'Third User', :email => 'user3@example.com', :password => 'please', :password_confirmation => 'please'
+user = User.create! :name => 'Third User', :username => 'username3', :email => 'user3@example.com', :password => 'please', :password_confirmation => 'please'
 puts 'New user created: ' << user.name
-user = User.create! :name => 'Fourth User', :email => 'user4@example.com', :password => 'please', :password_confirmation => 'please'
+user = User.create! :name => 'Fourth User', :username => 'username4', :email => 'user4@example.com', :password => 'please', :password_confirmation => 'please'
 puts 'New user created: ' << user.name
-user = User.create! :name => 'Fifth User', :email => 'user5@example.com', :password => 'please', :password_confirmation => 'please'
+user = User.create! :name => 'Fifth User', :username => 'username5', :email => 'user5@example.com', :password => 'please', :password_confirmation => 'please'
 puts 'New user created: ' << user.name
-user = User.create! :name => 'Sixth User', :email => 'user6@example.com', :password => 'please', :password_confirmation => 'please'
+user = User.create! :name => 'Sixth User', :username => 'username6', :email => 'user6@example.com', :password => 'please', :password_confirmation => 'please'
 puts 'New user created: ' << user.name
-user = User.create! :name => 'Seventh User', :email => 'user7@example.com', :password => 'please', :password_confirmation => 'please'
+user = User.create! :name => 'Seventh User', :username => 'username7', :email => 'user7@example.com', :password => 'please', :password_confirmation => 'please'
 puts 'New user created: ' << user.name
