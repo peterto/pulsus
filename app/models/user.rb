@@ -1,4 +1,5 @@
 class User
+  # devise :omniauthable
   include Mongoid::Document
   include Mongoid::Timestamps
   # Include default devise modules. Others available are:
