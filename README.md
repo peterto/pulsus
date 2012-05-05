@@ -1,1 +1,1 @@
-[Flickr](http://www.flickr.com) clone in rails
+Template with devise, mongoid and rails
