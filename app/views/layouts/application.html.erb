@@ -10,44 +10,6 @@
 
     <script type="text/javascript">
       var map;
-
-      function initialize() {
-        var myOptions = {
-          zoom: 6,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        map = new google.maps.Map(document.getElementById('map_canvas'),
-            myOptions);
-        var blueIcon = new GIcon(G_DEFAULT_ICON);
-        blueIcon.image = "townhouse.png";
-
-        // Try HTML5 geolocation
-        if(navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = new google.maps.LatLng(position.coords.latitude,
-                                             position.coords.longitude);
-
-            var infowindow = new google.maps.InfoWindow({
-              map: map,
-              position: pos,
-              shadow: shadow,
-              icon: image,
-              shape: shape,
-
-            });
-
-            map.setCenter(pos);
-          }, function() {
-            handleNoGeolocation(true);
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleNoGeolocation(false);
-        }
-        // Set up our GMarkerOptions object
-        setMarkers(map, beaches);
-
-      }
       var beaches = [
   ['Bondi Beach', -33.890542, 151.274856, 4],
   ['Coogee Beach', -33.923036, 151.259052, 5],
@@ -55,6 +17,7 @@
   ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
   ['Maroubra Beach', -33.950198, 151.259302, 1]
 ];
+  var marker;
   // Add markers to the map
 
   // Marker sizes are expressed as a Size of X,Y
@@ -64,44 +27,55 @@
   // Origins, anchor positions and coordinates of the marker
   // increase in the X direction to the right and in
   // the Y direction down.
-  var image = new google.maps.MarkerImage('townhouse.png',
+
+      function initialize() {
+        var myOptions = {
+          zoom: 6,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById('map_canvas'),
+            myOptions);
+var image = new google.maps.MarkerImage('images/townhouse.png',
       // This marker is 20 pixels wide by 32 pixels tall.
       new google.maps.Size(20, 32),
       // The origin for this image is 0,0.
       new google.maps.Point(0,0),
       // The anchor for this image is the base of the flagpole at 0,32.
       new google.maps.Point(0, 32));
-  var shadow = new google.maps.MarkerImage('townhouse.png',
-      // The shadow image is larger in the horizontal dimension
-      // while the position and offset are the same as for the main image.
-      new google.maps.Size(37, 32),
-      new google.maps.Point(0,0),
-      new google.maps.Point(0, 32));
-      // Shapes define the clickable region of the icon.
-      // The type defines an HTML <area> element 'poly' which
-      // traces out a polygon as a series of X,Y points. The final
-      // coordinate closes the poly by connecting to the first
-      // coordinate.
-  var shape = {
-      coord: [1, 1, 1, 20, 18, 20, 18 , 1],
-      type: 'poly'
-  };
 
-      function setMarkers(map, locations) {
-  for (var i = 0; i < locations.length; i++) {
-    var beach = locations[i];
-    var myLatLng = new google.maps.LatLng(beach[1], beach[2]);
-    var marker = new google.maps.Marker({
-        position: myLatLng,
+        // Try HTML5 geolocation
+        if(navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = new google.maps.LatLng(position.coords.latitude,
+                                             position.coords.longitude);
+         var marker = new google.maps.Marker({
+        position: pos,
         map: map,
-        shadow: shadow,
-        icon: image,
-        shape: shape,
-        title: beach[0],
-        zIndex: beach[3]
-    });
-  }
-}
+        title: 'Shri Bodas',
+        icon: image
+        });
+var infowindow = new google.maps.InfoWindow();
+
+        google.maps.event.addListener(marker, 'click', (function(marker) {
+            return function() {
+            infowindow.setContent('Shri Bodas');
+             infowindow.open(map, marker);
+           }
+         })(marker));
+            map.setCenter(pos);
+          }, function() {
+            handleNoGeolocation(true);
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleNoGeolocation(false);
+        }
+        // Set up our GMarkerOptions object
+ 
+
+      }
+
+ 
       function handleNoGeolocation(errorFlag) {
         if (errorFlag) {
           var content = 'Error: The Geolocation service failed.';
