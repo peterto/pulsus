@@ -1,12 +1,4 @@
-    <!--
-    Include the maps javascript with sensor=true because this code is using a
-sensor (a GPS locator) to determine the user's location.
-    See: https://developers.google.com/apis/maps/documentation/javascript/basics#SpecifyingSensor
-    -->
-    <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 
-    <script type="text/javascript">
       var map;
 
       function initialize() {
@@ -57,4 +49,3 @@ function handleNoGeolocation(errorFlag) {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
