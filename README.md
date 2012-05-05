@@ -1,1 +1,1 @@
-Template with devise, mongoid and rails
+Pulsus - Music app for startup weekend

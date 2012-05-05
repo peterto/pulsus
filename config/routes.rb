@@ -1,4 +1,4 @@
-Flickarr::Application.routes.draw do
+Pulsus::Application.routes.draw do
   root :to => "home#index"
 
   devise_for :users

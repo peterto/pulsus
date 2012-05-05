@@ -7,8 +7,9 @@ gem 'bson_ext', '~> 1.5'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'awesome_print'
-gem "paperclip", "~> 3.0"
+gem 'paperclip', '~> 3.0'
 gem 'devise'
+gem 'omniauth-facebook'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

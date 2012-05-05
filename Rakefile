@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Flickarr::Application.load_tasks
+Pulsus::Application.load_tasks

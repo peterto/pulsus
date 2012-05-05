@@ -1,10 +1,10 @@
 development:
   host: localhost
-  database: flickarr_development
+  database: pulsus_development
 
 test:
   host: localhost
-  database: flickarr_test
+  database: pulsus_test
 
 # set these environment variables on your prod server
 production:
