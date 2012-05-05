@@ -11,3 +11,15 @@ Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
 puts 'SETTING UP DEFAULT USER LOGIN'
 user = User.create! :name => 'First User', :email => 'user@example.com', :password => 'please', :password_confirmation => 'please'
 puts 'New user created: ' << user.name
+user = User.create! :name => 'Second User', :email => 'user2@example.com', :password => 'please', :password_confirmation => 'please'
+puts 'New user created: ' << user.name
+user = User.create! :name => 'Third User', :email => 'user3@example.com', :password => 'please', :password_confirmation => 'please'
+puts 'New user created: ' << user.name
+user = User.create! :name => 'Fourth User', :email => 'user4@example.com', :password => 'please', :password_confirmation => 'please'
+puts 'New user created: ' << user.name
+user = User.create! :name => 'Fifth User', :email => 'user5@example.com', :password => 'please', :password_confirmation => 'please'
+puts 'New user created: ' << user.name
+user = User.create! :name => 'Sixth User', :email => 'user6@example.com', :password => 'please', :password_confirmation => 'please'
+puts 'New user created: ' << user.name
+user = User.create! :name => 'Seventh User', :email => 'user7@example.com', :password => 'please', :password_confirmation => 'please'
+puts 'New user created: ' << user.name

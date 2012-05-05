@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pulsus</title>
+  <title>Pulses</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div class="container">
-    <ul class="hmenu">
-      <%= render 'shared/navigation' %>
-    </ul>
+    <%= render 'shared/header' %>
+  </div>
+  
+  <div class="container">
+    <div class="hero-unit">
+        <h1>Pulses</h1>
+        <p>
+          How are you feeling today?
+        </p>
+        <a class="btn btn-primary btn-large" href="#test">Take our test</a>
+    </div>
     <%- flash.each do |name, msg| -%>
       <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
     <%- end -%>

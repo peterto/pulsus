@@ -3,10 +3,24 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
+    respond_to do |format|
+      format.html
+      format.json { render :json => @users }
+      format.text { render :text => @users }
+    end
   end
   
   def show
-    @user = User.find(params[:id])
+    begin
+      @user = User.find(params[:id])
+      respond_to do |format|
+        format.html
+        format.json { render :json => @user }
+        format.text { render :text => @user }
+      end
+    rescue Mongoid::Errors::DocumentNotFound, BSON::InvalidObjectId
+      render file: "public/404.html", status: 404
+    end
   end
   
   def new

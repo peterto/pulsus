@@ -1,9 +1,18 @@
 Pulsus::Application.routes.draw do
+  resources :user_histories
+
+  resources :answers
+  resources :questions
+  
+
   root :to => "home#index"
 
   devise_for :users
-
-  resources :users, :only => :show
+  
+  resources :users #, :only => :show
+  resources :tests
+    # resources :tests
+  # end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
