@@ -1,6 +1,7 @@
-<div id="map_canvas"></div>
 
 <h3>Home</h3>
 <% @users.each do |user| %>
   <p>User: <%=link_to user.name, user %></p>
 <% end %>
+
+<div id="map_canvas" style="height: 600px;"></div>
