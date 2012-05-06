@@ -10,14 +10,20 @@
 
     <script type="text/javascript">
       var map;
-      var beaches = [
-  ['Bondi Beach', -33.890542, 151.274856, 4],
-  ['Coogee Beach', -33.923036, 151.259052, 5],
-  ['Cronulla Beach', -34.028249, 151.157507, 3],
-  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-  ['Maroubra Beach', -33.950198, 151.259302, 1]
-];
-  var marker;
+
+      var marker;
+      var pos;
+      var user_data = <%= @users.to_json.to_s.html_safe %>;
+      var infos = [];
+      var blue_restaurant_image = new google.maps.MarkerImage('http://dl.dropbox.com/u/42883507/blue_restaurant.png',
+      new google.maps.Size(32, 40),
+      // This marker is 20 pixels wide by 32 pixels tall.
+      // The origin for this image is 0,0.
+      new google.maps.Point(0,0),
+      // The anchor for this image is the base of the flagpole at 0,32.
+      new google.maps.Point(0, 40));
+
+
   // Add markers to the map
 
   // Marker sizes are expressed as a Size of X,Y
@@ -30,39 +36,58 @@
 
       function initialize() {
         var myOptions = {
-          zoom: 6,
+          zoom: 15,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(document.getElementById('map_canvas'),
             myOptions);
-var image = new google.maps.MarkerImage('images/townhouse.png',
-      // This marker is 20 pixels wide by 32 pixels tall.
-      new google.maps.Size(20, 32),
-      // The origin for this image is 0,0.
-      new google.maps.Point(0,0),
-      // The anchor for this image is the base of the flagpole at 0,32.
-      new google.maps.Point(0, 32));
-
         // Try HTML5 geolocation
         if(navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = new google.maps.LatLng(position.coords.latitude,
+        pos = new google.maps.LatLng(position.coords.latitude,
                                              position.coords.longitude);
-         var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
         position: pos,
         map: map,
         title: 'Shri Bodas',
-        icon: image
+        icon: blue_restaurant_image
         });
-var infowindow = new google.maps.InfoWindow();
+
 
         google.maps.event.addListener(marker, 'click', (function(marker) {
             return function() {
-            infowindow.setContent('Shri Bodas');
+            closeInfos();
+            var infowindow = new google.maps.InfoWindow();
+            infowindow.setContent('Shri Bodas <br/> <a href="http://www.google.com" >Google</a>');
              infowindow.open(map, marker);
+             infos[0] = infowindow; 
            }
          })(marker));
             map.setCenter(pos);
+
+         for(var i=0; i < user_data.length; i++) {
+             pos = new google.maps.LatLng(user_data[i].lat,
+                                             user_data[i].long);
+             var user_info = user_data[i].name + "<br/> <a href='" + user_data[i].facebook_username +"' >Facebook</a><br/> <a href='" + user_data[i].googleplus_username +"' >Google+</a><br/> <a href='" + user_data[i].twitter_username +"' >Twitter</a>"; 
+             marker = new google.maps.Marker({
+                      position: pos,
+                      map: map,
+                      title: user_data[i].name,
+                      icon: blue_restaurant_image,
+                      content: user_info
+             });
+
+             google.maps.event.addListener(marker, 'click', (function(marker) {
+                 return function() {
+             closeInfos();
+            var infowindow = new google.maps.InfoWindow();
+            infowindow.setContent(this.content);
+             infowindow.open(map, this);
+             infos[0]=infowindow;
+             }
+         })(marker));
+         }
+
           }, function() {
             handleNoGeolocation(true);
           });
@@ -71,11 +96,26 @@ var infowindow = new google.maps.InfoWindow();
           handleNoGeolocation(false);
         }
         // Set up our GMarkerOptions object
- 
+  //      for(var i = 0; i < userdata.length; i++) {
+
+//        }
 
       }
 
+      function closeInfos(){
  
+   if(infos.length > 0){
+ 
+      /* detach the info-window from the marker */
+      infos[0].set("marker",null);
+ 
+      /* and close it */
+      infos[0].close();
+ 
+      /* blank the array */
+      infos.length = 0;
+   }
+}
       function handleNoGeolocation(errorFlag) {
         if (errorFlag) {
           var content = 'Error: The Geolocation service failed.';
