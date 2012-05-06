@@ -17,7 +17,14 @@
         <p>
           How are you feeling today?
         </p>
-        <a class="btn btn-primary btn-large" href="#test">Take our test</a>
+        <% if user_signed_in? %>
+          <a class="btn btn-primary btn-large" href="#test" id="test">Answer a Question</a>
+        <% else %>
+        <%= link_to "Answer a Question", new_user_session_path, { :class => "btn btn-primary btn-large" } %>
+        <% end %>
+    </div>
+    
+    <div class="question">
     </div>
     <%- flash.each do |name, msg| -%>
       <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>

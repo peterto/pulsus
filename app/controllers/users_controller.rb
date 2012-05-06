@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:id])
     if @user.save
-      redirect_to users_path, notice: 'A new user has been created'
+      redirect_to root_path, notice: 'A new user has been created'
     else
       render action: 'new'
     end

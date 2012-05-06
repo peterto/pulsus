@@ -1,7 +1,6 @@
 class Answer
   include Mongoid::Document
-  field :title
-  field :content
+  field :value, :type => Integer
   field :published_on, :type => Date
-  embedded_in :user
+  referenced_in :user
 end
