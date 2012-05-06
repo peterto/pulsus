@@ -1,15 +1,10 @@
-<table>
-  <tr>
-    <th>Title</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @questions.each do |question| %>
-  <tr>
-    <td><%= link_to question.title, question %></td>
-  </tr>
-<% end %>
-</table>
+  <%= simple_form_for(@answer) do |f| %>
+      <h3><%= question.title %></h3>
+          <%= f.input :value, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :selected => "1" %>
 
+          <div class="submission">
+          </div>
+
+  <% end %>
+<% end %>

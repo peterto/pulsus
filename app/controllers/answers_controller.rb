@@ -40,8 +40,9 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
-    @answer = Answer.new(params[:answer])
-    # @answer.update_attributes(:user_id => @user.id)
+    # @answer = Answer.new(params[:answer])
+    # @answer = current_user.answers.new(params[:answer])
+    @answer = current_user.answers.new(params[:answer])
     respond_to do |format|
       if @answer.save
         format.html { redirect_to @answer, notice: 'Answer was successfully created.' }

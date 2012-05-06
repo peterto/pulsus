@@ -144,20 +144,16 @@
   
   <div class="container">
     <div class="hero-unit">
-        <h1>Pulses</h1>
+        <h1>Pulsus</h1>
         <p>
           How are you feeling today?
         </p>
         <% if user_signed_in? %>
-          <a class="btn btn-primary btn-large" href="#test" id="test">Answer a Question</a>
+          <!-- <a class="btn btn-primary btn-large" href="#test" id="test">Answer a Question</a> -->
+          <%= link_to "Answer a Question", questions_path, { :class => "btn btn-primary btn-large" } %>
         <% else %>
         <%= link_to "Answer a Question", new_user_session_path, { :class => "btn btn-primary btn-large" } %>
         <% end %>
-    </div>
-    
-    <div class="question">
-      <form accept-charset="UTF-8" action="/answers" class="answer" id="new_answer" method="post" novalidate="novalidate">
-      </form>
     </div>
     
     <!-- <a href="#dialog" name="modal">Simple Modal Window</a> -->

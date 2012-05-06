@@ -3,7 +3,9 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @questions = Question.all
-
+    @answer = Answer.new
+    # @answer = Hash.new
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @questions }
@@ -25,7 +27,7 @@ class QuestionsController < ApplicationController
   # GET /questions/new.json
   def new
     @question = Question.new
-
+    @answer = Answer.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @question }
@@ -41,9 +43,9 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(params[:question])
-
+    @answer = Answer.new(params[:answer])
     respond_to do |format|
-      if @question.save
+      if @question.save && @answer.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
         format.json { render json: @question, status: :created, location: @question }
       else

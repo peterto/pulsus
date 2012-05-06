@@ -14,30 +14,36 @@
 //= require jquery_ujs
 //= require_tree .
 $(function() {
-	$('#test').on('click', function(e){
-		e.preventDefault();
-		var url = 'questions.json'
-		
-		var form_1 = "<input type='radio' name='answer'' value='1'>Very Inaccurate</input> "
-		var form_2 = "<input type='radio' name='answer' value='2'>Moderately Inaccurate</input> "
-		var form_3 = "<input type='radio' name='answer' value='3'>Neither Accurate Nor Inaccurate</input> "
-		var form_4 = "<input type='radio' name='answer' value='4'>Moderately Accurate</input> "
-		var form_5 = "<input type='radio' name='answer' value='5'>Very Accurate</input><br />"
-		var button_for_form = "<input class='button' type='submit' value ='answer' /><br />"
-		
-		$.get( url, function (data){
-			var question = data[Math.floor( Math.random() * data.length )];
-
-			$('.answer').append( question.title + '<br />' + form_1 + form_2 + form_3 + form_4 + form_5 + button_for_form );
-		
-		});	
-		
-		var answers_url = 'answers.json';
-		var $form = $(this).find('input[name="answer"]').serialize();
-		console.log($form);
-		// $.post ( answers_url, )
-		
-	});
+	
+	var form = '<input class="button btn btn-primary btn-large" name="commit" type="submit" value="Submit">'
+	$('#new_answer:last-child').append(form);
+	
+	// $('#test').on('click', function(e){
+	// 	e.preventDefault();
+	// 	var url = 'questions.json'
+	// 	
+	// 	var form_1 = "<input type='radio' name='answer' value='1'>Very Inaccurate</input> "
+	// 	var form_2 = "<input type='radio' name='answer' value='2'>Moderately Inaccurate</input> "
+	// 	var form_3 = "<input type='radio' name='answer' value='3'>Neither Accurate Nor Inaccurate</input> "
+	// 	var form_4 = "<input type='radio' name='answer' value='4'>Moderately Accurate</input> "
+	// 	var form_5 = "<input type='radio' name='answer' value='5'>Very Accurate</input><br />"
+	// 	var button_for_form = "<input class='button' type='submit' value ='answer' /><br />"
+	// 	
+	// 	$.get( url, function (data){
+	// 		var question = data[Math.floor( Math.random() * data.length )];
+	// 
+	// 		$('.answer').append( question.title + '<br />' + form_1 + form_2 + form_3 + form_4 + form_5 + button_for_form );
+	// 	
+	// 	});	
+	// 	
+	// 	var answers_url = 'answers.json';
+	// 	var $form = $(this).find('input[name="answer"]').serialize();
+	// 	console.log($form);
+	// 	// $.post ( answers_url, )
+	// 	
+	// });
+	
+	
 });
 
 $(document).ready(function() {  

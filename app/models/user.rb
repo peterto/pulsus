@@ -38,6 +38,7 @@ class User
 
   key :email
   references_many :answers
+  # accepts_nested_attributes_for :answers
   
   field :twitter_username
   field :googleplus_username
