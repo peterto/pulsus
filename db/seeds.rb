@@ -35,6 +35,19 @@ puts 'New question created: ' << question.title
 question = Question.create! :title => 'Have a rich vocabulary.', :value => '5'
 puts 'New question created: ' << question.title
 
+venue = Venue.create! :name => 'Cielo Club', :lat => '40.745452', :long => '-74.005902', :color => '0', :type => '', :yelp_url => ''
+puts 'New venue created: ' << venue.name
+venue = Venue.create! :name => 'Tao Restaurant', :lat => '40.764226', :long => '-73.971462', :color => '2', :type => '', :yelp_url => ''
+puts 'New venue created: ' << venue.name
+venue = Venue.create! :name => 'Pacha Club', :lat => '40.763771', :long => '-73.997297', :color => '1', :type => '', :yelp_url => ''
+puts 'New venue created: ' << venue.name
+venue = Venue.create! :name => 'Balthazar Restaurant', :lat => '40.722738', :long => '-73.998263', :color => '3', :type => '', :yelp_url => ''
+puts 'New venue created: ' << venue.name
+venue = Venue.create! :name => 'Souen Restaurant Soho', :lat => '40.727259', :long => '-74.003069', :color => '3', :type => '', :yelp_url => ''
+puts 'New venue created: ' << venue.name
+venue = Venue.create! :name => 'Ulysses A Folk House Restaurant', :lat => '40.704196', :long => '-74.009914', :color => '1', :type => '', :yelp_url => ''
+puts 'New venue created: ' << venue.name
+
 # user_history = UserHistory.create! :lat => '40.745452', :long => '-74.005902', :mood => '0'
 # puts 'New User history created!: ' << user_history.id
 # user_history = UserHistory.create! :lat => '40.764226', :long => '-73.971462', :mood => '2'
