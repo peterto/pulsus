@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @venues = Venue.all
     respond_to do |format|
       format.html
-      format.json { render json: => @users }
+      format.json { render :json => @users }
       format.text { render :text => @users }
     end
   end
