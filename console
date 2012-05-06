@@ -1,0 +1,192 @@
+Script started on Sat May  5 20:51:15 2012
+vkeesari@MacBook:~/Sites/pulsesapp:master$ Users.fir[K[K[K[K[K.first
+bash: User.first: command not found
+vkeesari@MacBook:~/Sites/pulsesapp:master$ User.first[6Pexitrake routesils console
+Loading development environment (Rails 3.2.1)
+1.9.3p194 :001 > User.first
+ => #<User _id: 4fa56fd74dd9620225000003, _type: nil, created_at: 2012-05-05 18:22:15 UTC, updated_at: 2012-05-06 00:50:06 UTC, email: "vkeesari@yahoo.com", encrypted_password: "$2a$10$9wqjqUDAgYhU9Vs4ICVcp.Dw3SbKlOT3EuYytrP/LgPgK2VAlKm4y", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 10, current_sign_in_at: 2012-05-06 00:50:06 UTC, last_sign_in_at: 2012-05-06 00:48:54 UTC, current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", name: "Venu Keesari", photo: nil> 
+1.9.3p194 :002 > Users[K.destroy_all
+ => 1 
+1.9.3p194 :003 > User.destroy_all[11Dfirst[K
+ => nil 
+1.9.3p194 :004 > exit
+vkeesari@MacBook:~/Sites/pulsesapp:master$ rails console[3PUser.firstrails console
+Loading development environment (Rails 3.2.1)
+1.9.3p194 :001 > exitUser.first
+ => nil 
+1.9.3p194 :002 > User.first
+ => nil 
+1.9.3p194 :003 > U[Kreoad[K[K[Kload!
+Reloading...
+ => true 
+1.9.3p194 :004 > reload![7DUser.first
+ => nil 
+1.9.3p194 :005 > User.first
+ => #<User _id: 4fa5d2804dd9621a8d000001, _type: nil, created_at: 2012-05-06 01:23:13 UTC, updated_at: 2012-05-06 01:23:13 UTC, email: "vkeesari@yahoo.com", encrypted_password: "$2a$10$vUpgbBmOMwWKVItha4pr/OKn8lmWMVy4OHmgkcd8DDL/4uFFDtbLG", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: 2012-05-06 01:23:13 UTC, last_sign_in_at: 2012-05-06 01:23:13 UTC, current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", name: "Venu Keesari", photo: nil> 
+1.9.3p194 :006 > User.first[10Dreload![K[7DUser.first[10Dreload![K
+Reloading...
+ => true 
+1.9.3p194 :007 > reload![7DUser.first[10Dreload![K[7DUser.first[K[K[K[K[Kall
+ => #<Mongoid::Criteria
+  selector: {},
+  options:  {},
+  class:    User,
+  embedded: false>
+ 
+1.9.3p194 :008 > User.all.count
+ => 1 
+1.9.3p194 :009 > User.all.count
+ => 1 
+1.9.3p194 :010 > User.all.count
+ => 1 
+1.9.3p194 :011 > User.all.count[6D[K[8Dreload![K[7DUser.first[10Dreload![K[7DUser.first[10Dexit[KUser.first.destor[K[Krot
+NoMethodError: undefined method `destrot' for #<User:0x00000103e54828>
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/mongoid-2.4.7/lib/mongoid/attributes.rb:166:in `method_missing'
+	from (irb):11
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:47:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:8:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+1.9.3p194 :012 > User.first.destrot[Ky
+ => true 
+1.9.3p194 :013 > User.first.destroyt[13Dall.count[K
+ => 0 
+1.9.3p194 :014 > User.all.count
+ => 1 
+1.9.3p194 :015 > User.all.count
+ => 1 
+1.9.3p194 :016 > User.all.count[9Dfirst.destroy
+ => true 
+1.9.3p194 :017 > User.first.destroy[13Dall.count[K
+ => 0 
+1.9.3p194 :018 > User.all.count[9Dfirst.destroy
+ => true 
+1.9.3p194 :019 > User.first.destroy[13Dall.count[K
+ => 0 
+1.9.3p194 :020 > User.all.count[9Dfirst.destroy
+ => true 
+1.9.3p194 :021 > User.first.destroy
+ => true 
+1.9.3p194 :022 > User.first.destroy
+ => true 
+1.9.3p194 :023 > User.first.destroy
+ => true 
+1.9.3p194 :024 > User.first.destroy[13Dall.count[K
+ => 0 
+1.9.3p194 :025 > User.all.count[9Dfirst.destroy
+ => true 
+1.9.3p194 :026 > User.first.destroy[K[K[K[K[K[K[Kfacebook
+ => {"provider"=>"facebook", "uid"=>"1051348383", "info"=>{"nickname"=>"vkeesari", "email"=>"vkeesari@yahoo.com", "name"=>"Venu Keesari", "first_name"=>"Venu", "last_name"=>"Keesari", "image"=>"http://graph.facebook.com/1051348383/picture?type=square", "urls"=>{"Facebook"=>"http://www.facebook.com/vkeesari"}, "location"=>"New York, New York", "verified"=>true}, "credentials"=>{"token"=>"AAAGULLiKIlkBAKPbUHAy6ZAmdoK0iZBAav4rYX0vMwry0jLJOG8MezZCIYdvfBwyHDceMvXOeKKAcOwZA34akUdH3cKOzq3wffz6vw0wGgZDZD", "expires_at"=>1341428368, "expires"=>true}, "extra"=>{"raw_info"=>{"id"=>"1051348383", "name"=>"Venu Keesari", "first_name"=>"Venu", "last_name"=>"Keesari", "link"=>"http://www.facebook.com/vkeesari", "username"=>"vkeesari", "hometown"=>{"id"=>"110941395597405", "name"=>"Toronto, Ontario"}, "location"=>{"id"=>"108424279189115", "name"=>"New York, New York"}, "gender"=>"male", "email"=>"vkeesari@yahoo.com", "timezone"=>-4, "locale"=>"en_US", "verified"=>true, "updated_time"=>"2011-04-27T01:41:45+0000"}}} 
+1.9.3p194 :027 > User.first.facebook[;[K'']l']o']c']a']t']i']o']n']
+ => nil 
+1.9.3p194 :028 > User.first.facebook['location']['location'][K[K[K[K[K[K[K[K[K[K[K[K[Kk_info
+NoMethodError: undefined method `facebook_info' for #<User:0x00000103fb5758>
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/mongoid-2.4.7/lib/mongoid/attributes.rb:166:in `method_missing'
+	from (irb):28
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:47:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:8:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+1.9.3p194 :029 > User.first.facebook_info
+NoMethodError: undefined method `facebook_info' for #<User:0x00000103fba960>
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/mongoid-2.4.7/lib/mongoid/attributes.rb:166:in `method_missing'
+	from (irb):29
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:47:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:8:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+1.9.3p194 :030 > User.first.facebook_info[K[K[K[K[K
+ => {"provider"=>"facebook", "uid"=>"1051348383", "info"=>{"nickname"=>"vkeesari", "email"=>"vkeesari@yahoo.com", "name"=>"Venu Keesari", "first_name"=>"Venu", "last_name"=>"Keesari", "image"=>"http://graph.facebook.com/1051348383/picture?type=square", "urls"=>{"Facebook"=>"http://www.facebook.com/vkeesari"}, "location"=>"New York, New York", "verified"=>true}, "credentials"=>{"token"=>"AAAGULLiKIlkBAKPbUHAy6ZAmdoK0iZBAav4rYX0vMwry0jLJOG8MezZCIYdvfBwyHDceMvXOeKKAcOwZA34akUdH3cKOzq3wffz6vw0wGgZDZD", "expires_at"=>1341428368, "expires"=>true}, "extra"=>{"raw_info"=>{"id"=>"1051348383", "name"=>"Venu Keesari", "first_name"=>"Venu", "last_name"=>"Keesari", "link"=>"http://www.facebook.com/vkeesari", "username"=>"vkeesari", "hometown"=>{"id"=>"110941395597405", "name"=>"Toronto, Ontario"}, "location"=>{"id"=>"108424279189115", "name"=>"New York, New York"}, "gender"=>"male", "email"=>"vkeesari@yahoo.com", "timezone"=>-4, "locale"=>"en_US", "verified"=>true, "updated_time"=>"2011-04-27T01:41:45+0000"}}} 
+1.9.3p194 :031 > User.first.facebook_info
+NoMethodError: undefined method `facebook_info' for #<User:0x00000103d98a88>
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/mongoid-2.4.7/lib/mongoid/attributes.rb:166:in `method_missing'
+	from (irb):31
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:47:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:8:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+1.9.3p194 :032 > User.first.facebook_info[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+ => #<User _id: 4fa6988b4dd9622381000008, _type: nil, created_at: 2012-05-06 15:28:11 UTC, updated_at: 2012-05-06 16:37:50 UTC, email: "vkeesari@yahoo.com", encrypted_password: "$2a$10$F2321.K4OjVYnex/t8tPmepR3rXcgxecOaetA52/o7NRlwqv6yOPi", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: 2012-05-06 16:37:50 UTC, last_sign_in_at: 2012-05-06 15:28:11 UTC, current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", name: "Venu Keesari", photo: nil, facebook: {"provider"=>"facebook", "uid"=>"1051348383", "info"=>{"nickname"=>"vkeesari", "email"=>"vkeesari@yahoo.com", "name"=>"Venu Keesari", "first_name"=>"Venu", "last_name"=>"Keesari", "image"=>"http://graph.facebook.com/1051348383/picture?type=square", "urls"=>{"Facebook"=>"http://www.facebook.com/vkeesari"}, "location"=>"New York, New York", "verified"=>true}, "credentials"=>{"token"=>"AAAGULLiKIlkBAKPbUHAy6ZAmdoK0iZBAav4rYX0vMwry0jLJOG8MezZCIYdvfBwyHDceMvXOeKKAcOwZA34akUdH3cKOzq3wffz6vw0wGgZDZD", "expires_at"=>1341428368, "expires"=>true}, "extra"=>{"raw_info"=>{"id"=>"1051348383", "name"=>"Venu Keesari", "first_name"=>"Venu", "last_name"=>"Keesari", "link"=>"http://www.facebook.com/vkeesari", "username"=>"vkeesari", "hometown"=>{"id"=>"110941395597405", "name"=>"Toronto, Ontario"}, "location"=>{"id"=>"108424279189115", "name"=>"New York, New York"}, "gender"=>"male", "email"=>"vkeesari@yahoo.com", "timezone"=>-4, "locale"=>"en_US", "verified"=>true, "updated_time"=>"2011-04-27T01:41:45+0000"}}}> 
+1.9.3p194 :033 > User.first.facebook_info[K[K[K[K[K
+ => {"provider"=>"facebook", "uid"=>"1051348383", "info"=>{"nickname"=>"vkeesari", "email"=>"vkeesari@yahoo.com", "name"=>"Venu Keesari", "first_name"=>"Venu", "last_name"=>"Keesari", "image"=>"http://graph.facebook.com/1051348383/picture?type=square", "urls"=>{"Facebook"=>"http://www.facebook.com/vkeesari"}, "location"=>"New York, New York", "verified"=>true}, "credentials"=>{"token"=>"AAAGULLiKIlkBAKPbUHAy6ZAmdoK0iZBAav4rYX0vMwry0jLJOG8MezZCIYdvfBwyHDceMvXOeKKAcOwZA34akUdH3cKOzq3wffz6vw0wGgZDZD", "expires_at"=>1341428368, "expires"=>true}, "extra"=>{"raw_info"=>{"id"=>"1051348383", "name"=>"Venu Keesari", "first_name"=>"Venu", "last_name"=>"Keesari", "link"=>"http://www.facebook.com/vkeesari", "username"=>"vkeesari", "hometown"=>{"id"=>"110941395597405", "name"=>"Toronto, Ontario"}, "location"=>{"id"=>"108424279189115", "name"=>"New York, New York"}, "gender"=>"male", "email"=>"vkeesari@yahoo.com", "timezone"=>-4, "locale"=>"en_US", "verified"=>true, "updated_time"=>"2011-04-27T01:41:45+0000"}}} 
+1.9.3p194 :034 > User.first.facebook[]
+ArgumentError: wrong number of arguments(0 for 1)
+	from (irb):34:in `[]'
+	from (irb):34
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:47:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:8:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+1.9.3p194 :035 > User.first.facebook[]0]
+ => nil 
+1.9.3p194 :036 > User.first.facebook[0][K[K:]p]r]i]][Ko]v]i]d]e]r]
+ => nil 
+1.9.3p194 :037 > User.first.facebook[:provider]][K][K][K][K][K][K][K][K][K']p]r]o]v]i]d]e]r]]']
+ => "facebook" 
+1.9.3p194 :038 > User.first.facebook['provider']'][K'][K'][K'][K'][K'][K'][K'][Ke']x']t']r']a']
+ => {"raw_info"=>{"id"=>"1051348383", "name"=>"Venu Keesari", "first_name"=>"Venu", "last_name"=>"Keesari", "link"=>"http://www.facebook.com/vkeesari", "username"=>"vkeesari", "hometown"=>{"id"=>"110941395597405", "name"=>"Toronto, Ontario"}, "location"=>{"id"=>"108424279189115", "name"=>"New York, New York"}, "gender"=>"male", "email"=>"vkeesari@yahoo.com", "timezone"=>-4, "locale"=>"en_US", "verified"=>true, "updated_time"=>"2011-04-27T01:41:45+0000"}} 
+1.9.3p194 :039 > User.first.facebook['extra']['[K[K[K[K[K[K[K[K[K[K[K[Kk_info
+NoMethodError: undefined method `facebook_info' for #<User:0x00000100c9bbb0>
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/mongoid-2.4.7/lib/mongoid/attributes.rb:166:in `method_missing'
+	from (irb):39
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:47:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:8:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+1.9.3p194 :040 > User.first.facebook_info[5D['extra'][9D_info[K[K[K[K[K[K[K[K[K[K[K[K[K[Kfacebook['extra']['raw_info']
+ => {"id"=>"1051348383", "name"=>"Venu Keesari", "first_name"=>"Venu", "last_name"=>"Keesari", "link"=>"http://www.facebook.com/vkeesari", "username"=>"vkeesari", "hometown"=>{"id"=>"110941395597405", "name"=>"Toronto, Ontario"}, "location"=>{"id"=>"108424279189115", "name"=>"New York, New York"}, "gender"=>"male", "email"=>"vkeesari@yahoo.com", "timezone"=>-4, "locale"=>"en_US", "verified"=>true, "updated_time"=>"2011-04-27T01:41:45+0000"} 
+1.9.3p194 :041 > User.first.facebook['extra']['raw_info'][]']']l']o']c']a']t']i']o']n']'
+ => {"id"=>"108424279189115", "name"=>"New York, New York"} 
+1.9.3p194 :042 > User.first.facebook['extra']['raw_info']['location']
+ => {"id"=>"108424279189115", "name"=>"New York, New York"} 
+1.9.3p194 :043 > User.first.facebook['extra']['raw_info']['location']
+ => {"id"=>"108424279189115", "name"=>"New York, New York"} 
+1.9.3p194 :044 > User.first.facebook['extra']['raw_info']['location'][K[K[K[K[K[K[K[K[K[K[K[K
+ => {"id"=>"1051348383", "name"=>"Venu Keesari", "first_name"=>"Venu", "last_name"=>"Keesari", "link"=>"http://www.facebook.com/vkeesari", "username"=>"vkeesari", "hometown"=>{"id"=>"110941395597405", "name"=>"Toronto, Ontario"}, "location"=>{"id"=>"108424279189115", "name"=>"New York, New York"}, "gender"=>"male", "email"=>"vkeesari@yahoo.com", "timezone"=>-4, "locale"=>"en_US", "verified"=>true, "updated_time"=>"2011-04-27T01:41:45+0000"} 
+1.9.3p194 :045 > User.first.facebook['extra']['raw_info'].to_yaml
+ => "--- !ruby/hash:BSON::OrderedHash\nid: '1051348383'\nname: Venu Keesari\nfirst_name: Venu\nlast_name: Keesari\nlink: http://www.facebook.com/vkeesari\nusername: vkeesari\nhometown: !ruby/hash:BSON::OrderedHash\n  id: '110941395597405'\n  name: Toronto, Ontario\nlocation: !ruby/hash:BSON::OrderedHash\n  id: '108424279189115'\n  name: New York, New York\ngender: male\nemail: vkeesari@yahoo.com\ntimezone: -4\nlocale: en_US\nverified: true\nupdated_time: '2011-04-27T01:41:45+0000'\n" 
+1.9.3p194 :046 > User.first.facebook['extra']['raw_info'].to_yaml[4hp[4lU[4hp[4lU[4h [4lU
+"--- !ruby/hash:BSON::OrderedHash\nid: '1051348383'\nname: Venu Keesari\nfirst_name: Venu\nlast_name: Keesari\nlink: http://www.facebook.com/vkeesari\nusername: vkeesari\nhometown: !ruby/hash:BSON::OrderedHash\n  id: '110941395597405'\n  name: Toronto, Ontario\nlocation: !ruby/hash:BSON::OrderedHash\n  id: '108424279189115'\n  name: New York, New York\ngender: male\nemail: vkeesari@yahoo.com\ntimezone: -4\nlocale: en_US\nverified: true\nupdated_time: '2011-04-27T01:41:45+0000'\n"
+ => "--- !ruby/hash:BSON::OrderedHash\nid: '1051348383'\nname: Venu Keesari\nfirst_name: Venu\nlast_name: Keesari\nlink: http://www.facebook.com/vkeesari\nusername: vkeesari\nhometown: !ruby/hash:BSON::OrderedHash\n  id: '110941395597405'\n  name: Toronto, Ontario\nlocation: !ruby/hash:BSON::OrderedHash\n  id: '108424279189115'\n  name: New York, New York\ngender: male\nemail: vkeesari@yahoo.com\ntimezone: -4\nlocale: en_US\nverified: true\nupdated_time: '2011-04-27T01:41:45+0000'\n" 
+1.9.3p194 :047 > pp User.first.facebook['extra']['raw_info'].to_yaml[K[K[K[K[K[K[K[K[PU[PU[PU
+ => {"id"=>"1051348383", "name"=>"Venu Keesari", "first_name"=>"Venu", "last_name"=>"Keesari", "link"=>"http://www.facebook.com/vkeesari", "username"=>"vkeesari", "hometown"=>{"id"=>"110941395597405", "name"=>"Toronto, Ontario"}, "location"=>{"id"=>"108424279189115", "name"=>"New York, New York"}, "gender"=>"male", "email"=>"vkeesari@yahoo.com", "timezone"=>-4, "locale"=>"en_US", "verified"=>true, "updated_time"=>"2011-04-27T01:41:45+0000"} 
+1.9.3p194 :048 > User.first.facebook['extra']['raw_info'][4hpp [4l[40C.to_yaml
+"--- !ruby/hash:BSON::OrderedHash\nid: '1051348383'\nname: Venu Keesari\nfirst_name: Venu\nlast_name: Keesari\nlink: http://www.facebook.com/vkeesari\nusername: vkeesari\nhometown: !ruby/hash:BSON::OrderedHash\n  id: '110941395597405'\n  name: Toronto, Ontario\nlocation: !ruby/hash:BSON::OrderedHash\n  id: '108424279189115'\n  name: New York, New York\ngender: male\nemail: vkeesari@yahoo.com\ntimezone: -4\nlocale: en_US\nverified: true\nupdated_time: '2011-04-27T01:41:45+0000'\n"
+ => "--- !ruby/hash:BSON::OrderedHash\nid: '1051348383'\nname: Venu Keesari\nfirst_name: Venu\nlast_name: Keesari\nlink: http://www.facebook.com/vkeesari\nusername: vkeesari\nhometown: !ruby/hash:BSON::OrderedHash\n  id: '110941395597405'\n  name: Toronto, Ontario\nlocation: !ruby/hash:BSON::OrderedHash\n  id: '108424279189115'\n  name: New York, New York\ngender: male\nemail: vkeesari@yahoo.com\ntimezone: -4\nlocale: en_US\nverified: true\nupdated_time: '2011-04-27T01:41:45+0000'\n" 
+1.9.3p194 :049 > pp User.first.facebook['extra']['raw_info'].to_yaml[PU[PU[PU
+ => "--- !ruby/hash:BSON::OrderedHash\nid: '1051348383'\nname: Venu Keesari\nfirst_name: Venu\nlast_name: Keesari\nlink: http://www.facebook.com/vkeesari\nusername: vkeesari\nhometown: !ruby/hash:BSON::OrderedHash\n  id: '110941395597405'\n  name: Toronto, Ontario\nlocation: !ruby/hash:BSON::OrderedHash\n  id: '108424279189115'\n  name: New York, New York\ngender: male\nemail: vkeesari@yahoo.com\ntimezone: -4\nlocale: en_US\nverified: true\nupdated_time: '2011-04-27T01:41:45+0000'\n" 
+1.9.3p194 :050 > User.first.facebook['extra']['raw_info'].to_yaml[K[K[K[Kjson
+ => "{\"id\":\"1051348383\",\"name\":\"Venu Keesari\",\"first_name\":\"Venu\",\"last_name\":\"Keesari\",\"link\":\"http://www.facebook.com/vkeesari\",\"username\":\"vkeesari\",\"hometown\":{\"id\":\"110941395597405\",\"name\":\"Toronto, Ontario\"},\"location\":{\"id\":\"108424279189115\",\"name\":\"New York, New York\"},\"gender\":\"male\",\"email\":\"vkeesari@yahoo.com\",\"timezone\":-4,\"locale\":\"en_US\",\"verified\":true,\"updated_time\":\"2011-04-27T01:41:45+0000\"}" 
+1.9.3p194 :051 > User.first.facebook['extra']['raw_info'].to_json[K[K[K[K[K[K[Kinspsc[K[Kect
+ => "{\"id\"=>\"1051348383\", \"name\"=>\"Venu Keesari\", \"first_name\"=>\"Venu\", \"last_name\"=>\"Keesari\", \"link\"=>\"http://www.facebook.com/vkeesari\", \"username\"=>\"vkeesari\", \"hometown\"=>{\"id\"=>\"110941395597405\", \"name\"=>\"Toronto, Ontario\"}, \"location\"=>{\"id\"=>\"108424279189115\", \"name\"=>\"New York, New York\"}, \"gender\"=>\"male\", \"email\"=>\"vkeesari@yahoo.com\", \"timezone\"=>-4, \"locale\"=>\"en_US\", \"verified\"=>true, \"updated_time\"=>\"2011-04-27T01:41:45+0000\"}" 
+1.9.3p194 :052 > User.first.facebook['extra']['raw_info'].inspectect][K[K[K[K[K[K[K[K[K[4hy[4lU[4h [4lU
+NoMethodError: undefined method `y' for main:Object
+	from (irb):52
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:47:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:8:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+1.9.3p194 :053 > exi[K[K[Ky User.first.facebook['extra']['raw_info'][42D[2P[40C.inspect[7Dto_jsonyaml[48D[4hpp [4lU[47C[51D[3P[40C[K[40D[4hpp [4l[40C.to_yaml[51D[3PU[47C[8D[K['location'][12D[K[21D_info[K[5D['extra'][7Dprovider'][11D:provider][K[10D0][K][K[K[9D[K.facebook_info[5D[K_info[5D['location'][12D[K[8Ddestroy[K[13Dall.count[K[9Dfirst.destroy
+ => true 
+1.9.3p194 :054 > User.first.destroy
+NoMethodError: undefined method `destroy' for nil:NilClass
+	from (irb):54
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:47:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands/console.rb:8:in `start'
+	from /Users/vkeesari/.rvm/gems/ruby-1.9.3-p194/gems/railties-3.2.1/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+1.9.3p194 :055 > User.first.destroy[K[K[K[K[K[K[K[K
+ => #<User _id: 4fa6ba104dd9622eda000008, _type: nil, created_at: 2012-05-06 17:51:12 UTC, updated_at: 2012-05-06 17:51:12 UTC, email: "vkeesari@yahoo.com", encrypted_password: "$2a$10$iG49kwm93A84ye.JvnkL5OtiISCMRn/2OGMx5J.h4LjBDc3eo3p2i", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: 2012-05-06 17:51:12 UTC, last_sign_in_at: 2012-05-06 17:51:12 UTC, current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", name: "Venu Keesari", photo: nil> 
+1.9.3p194 :056 > User.first.destroy
+ => true 
+1.9.3p194 :057 > User.first.destroy[8D[K
+ => nil 
+1.9.3p194 :058 > 

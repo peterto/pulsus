@@ -1,3 +1,43 @@
+<% if @user.auth_type == :facebook %>
+
+  <%= image_tag @user.facebook['info']['image'], :title => @user.facebook['info']['name'], :class => "facebook" %>
+
+  <p>
+  <%= @user.facebook_info['location']['name'] %><br />
+  <%= @user.facebook_info['location']['id'] %>
+  </p>
+
+  <pre>Location ID: <%= @user.facebook_info['location']['id'] %></pre>
+  <pre><%= @user.facebook %></pre>
+
+<% end %>
+
+<% if @user.auth_type == :foursquare %>
+
+  <%= image_tag @user.facebook['photo'], :title => @user.facebook['photo'], :class => "foursquare" %>
+
+  <p>You are checked in at:</p>
+
+  <% parsed_json = ActiveSupport::JSON.decode(@user.facebook.to_json) %>
+
+  <p>
+   <% parsed_json["checkins"]["items"].each do |item|  %>
+     <%= item['venue']['name'] %><br />
+     <%= item['venue']['location']['address'] %><br />
+     <!-- Latitude: <%= item['venue']['location']['lat'] %><br />
+     Longitude: <%= item['venue']['location']['lng'] %><br /> -->
+
+     <iframe width="600" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=<%= item['venue']['location']['lat'] %>,<%= item['venue']['location']['lng'] %>+(<%="General+Assembly"%>)&amp;aq=&amp;sll=40.739063,-73.989658&amp;sspn=0.018339,0.038581&amp;ie=UTF8&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=40.73906330729812,-73.98965835571289+(General+Assembly)&amp;aq=&amp;sll=40.739063,-73.989658&amp;sspn=0.018339,0.038581&amp;ie=UTF8&amp;t=m&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+
+    <% end %>
+  </p>
+
+<!-- <pre><%= @user.facebook['checkins']['items'].first['venue']['name'] %></pre> -->
+
+  <!-- <p>All foursquare info</p>
+  <pre><%= @user.facebook %></pre> -->
+
+<% end %>
 
 <div class='container'>
   <p>User: <%= @user.name %></p>
