@@ -10,14 +10,8 @@
 
     <script type="text/javascript">
       var map;
-      var beaches = [
-  ['Bondi Beach', -33.890542, 151.274856, 4],
-  ['Coogee Beach', -33.923036, 151.259052, 5],
-  ['Cronulla Beach', -34.028249, 151.157507, 3],
-  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-  ['Maroubra Beach', -33.950198, 151.259302, 1]
-];
-  var marker;
+
+      var marker;
   // Add markers to the map
 
   // Marker sizes are expressed as a Size of X,Y
@@ -27,21 +21,22 @@
   // Origins, anchor positions and coordinates of the marker
   // increase in the X direction to the right and in
   // the Y direction down.
-
+//    var userdata = = <%= @json.to_s.html_safe %> ;
+//      var userdata = { "Restaurant" : [
       function initialize() {
         var myOptions = {
-          zoom: 6,
+          zoom: 10,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(document.getElementById('map_canvas'),
             myOptions);
-var image = new google.maps.MarkerImage('images/townhouse.png',
+        var image = new google.maps.MarkerImage('http://dl.dropbox.com/u/42883507/townhouse.png',
       // This marker is 20 pixels wide by 32 pixels tall.
-      new google.maps.Size(20, 32),
+      new google.maps.Size(32, 40),
       // The origin for this image is 0,0.
       new google.maps.Point(0,0),
       // The anchor for this image is the base of the flagpole at 0,32.
-      new google.maps.Point(0, 32));
+      new google.maps.Point(0, 40);
 
         // Try HTML5 geolocation
         if(navigator.geolocation) {
@@ -54,11 +49,11 @@ var image = new google.maps.MarkerImage('images/townhouse.png',
         title: 'Shri Bodas',
         icon: image
         });
-var infowindow = new google.maps.InfoWindow();
+        var infowindow = new google.maps.InfoWindow();
 
         google.maps.event.addListener(marker, 'click', (function(marker) {
             return function() {
-            infowindow.setContent('Shri Bodas');
+            infowindow.setContent('Shri Bodas <br/> <a href="www.google.com" >Google</a>');
              infowindow.open(map, marker);
            }
          })(marker));
@@ -71,7 +66,9 @@ var infowindow = new google.maps.InfoWindow();
           handleNoGeolocation(false);
         }
         // Set up our GMarkerOptions object
- 
+  //      for(var i = 0; i < userdata.length; i++) {
+
+//        }
 
       }
 
