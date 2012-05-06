@@ -14,7 +14,7 @@
       var marker;
       var pos;
       var user_data = <%= @users.to_json.to_s.html_safe %>;
-      
+      var infos = [];
       var blue_restaurant_image = new google.maps.MarkerImage('http://dl.dropbox.com/u/42883507/blue_restaurant.png',
       new google.maps.Size(32, 40),
       // This marker is 20 pixels wide by 32 pixels tall.
@@ -52,12 +52,15 @@
         title: 'Shri Bodas',
         icon: blue_restaurant_image
         });
-        var infowindow = new google.maps.InfoWindow();
+
 
         google.maps.event.addListener(marker, 'click', (function(marker) {
             return function() {
+            closeInfos();
+            var infowindow = new google.maps.InfoWindow();
             infowindow.setContent('Shri Bodas <br/> <a href="http://www.google.com" >Google</a>');
              infowindow.open(map, marker);
+             infos[0] = infowindow; 
            }
          })(marker));
             map.setCenter(pos);
@@ -71,12 +74,14 @@
                       title: user_data[i].name,
                       icon: blue_restaurant_image
              });
-             var infowindow = new google.maps.InfoWindow();
 
              google.maps.event.addListener(marker, 'click', (function(marker) {
                  return function() {
-             infowindow.setContent(user_data[i].name + '<br/> <a href="' + user_data[i].facebook_username +'" >Facebook</a>'+ '<br/> <a href="' + user_data[i].googleplus_username +'" >Google+</a>'+ '<br/> <a href="' + user_data[i].twitter_username +'" >Twitter</a>');
+             closeInfos();
+            var infowindow = new google.maps.InfoWindow();
+            infowindow.setContent(user_data[i].name + "<br/> <a href='" + user_data[i].facebook_username +"' >Facebook</a><br/> <a href='" + user_data[i].googleplus_username +"' >Google+</a><br/> <a href='" + user_data[i].twitter_username +"' >Twitter</a>");
              infowindow.open(map, marker);
+             infos[0]=infowindow;
              }
          })(marker));
          }
@@ -95,7 +100,20 @@
 
       }
 
+      function closeInfos(){
  
+   if(infos.length > 0){
+ 
+      /* detach the info-window from the marker */
+      infos[0].set("marker",null);
+ 
+      /* and close it */
+      infos[0].close();
+ 
+      /* blank the array */
+      infos.length = 0;
+   }
+}
       function handleNoGeolocation(errorFlag) {
         if (errorFlag) {
           var content = 'Error: The Geolocation service failed.';
