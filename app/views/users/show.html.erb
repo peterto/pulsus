@@ -1,6 +1,6 @@
 <p>User: <%= @user.name %></p>
 
-<% if @user.authtype == :facebook %>
+<% if @user.auth_type == :facebook %>
 
   <%= image_tag @user.facebook['info']['image'], :title => @user.facebook['info']['name'], :class => "facebook" %>
 
@@ -14,17 +14,9 @@
 
 <% end %>
 
-<% if @user.authtype == :foursquare %>
+<% if @user.auth_type == :foursquare %>
 
-  <%= image_tag @user.facebook['info']['image'], :title => @user.facebook['info']['name'], :class => "facebook" %>
-
-  <p>
-  <%= @user.facebook_info['location']['name'] %><br />
-  <%= @user.facebook_info['location']['id'] %>
-  </p>
-
-  <pre>Location ID: <%= @user.facebook_info['location']['id'] %></pre>
-  <pre><%= @user.facebook %></pre>
+You are logged in with <strong>foursquare</strong>
 
 <% end %>
 
