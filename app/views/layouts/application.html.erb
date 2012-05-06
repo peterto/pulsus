@@ -12,7 +12,7 @@
       var map;
 
       var marker;
-      
+      var pos;
       var user_data = <%= @users.to_json.to_s.html_safe %>;
       
       var blue_restaurant_image = new google.maps.MarkerImage('http://dl.dropbox.com/u/42883507/blue_restaurant.png',
@@ -44,9 +44,9 @@
         // Try HTML5 geolocation
         if(navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = new google.maps.LatLng(position.coords.latitude,
+        pos = new google.maps.LatLng(position.coords.latitude,
                                              position.coords.longitude);
-         var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
         position: pos,
         map: map,
         title: 'Shri Bodas',
@@ -62,9 +62,25 @@
          })(marker));
             map.setCenter(pos);
 
-         for(var i=0; i < user_data.length; i++){
-         
-}
+         for(var i=0; i < user_data.length; i++) {
+             pos = new google.maps.LatLng(user_data[i].lat,
+                                             user_data[i].long);
+             marker = new google.maps.Marker({
+                      position: pos,
+                      map: map,
+                      title: user_data[i].name,
+                      icon: blue_restaurant_image
+             });
+             var infowindow = new google.maps.InfoWindow();
+
+             google.maps.event.addListener(marker, 'click', (function(marker) {
+                 return function() {
+             infowindow.setContent(user_data[i].name + '<br/> <a href="' + user_data[i].facebook_username +'" >Facebook</a>'+ '<br/> <a href="' + user_data[i].googleplus_username +'" >Google+</a>'+ '<br/> <a href="' + user_data[i].twitter_username +'" >Twitter</a>');
+             infowindow.open(map, marker);
+             }
+         })(marker));
+         }
+
           }, function() {
             handleNoGeolocation(true);
           });
