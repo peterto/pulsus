@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pulsus</title>
+  <title>Pulses</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -11,27 +11,83 @@
     <script type="text/javascript">
       var map;
 
+      var marker;
+      var pos;
+      var user_data = <%= @users.to_json.to_s.html_safe %>;
+      var infos = [];
+      var blue_restaurant_image = new google.maps.MarkerImage('http://dl.dropbox.com/u/42883507/blue_restaurant.png',
+      new google.maps.Size(32, 40),
+      // This marker is 20 pixels wide by 32 pixels tall.
+      // The origin for this image is 0,0.
+      new google.maps.Point(0,0),
+      // The anchor for this image is the base of the flagpole at 0,32.
+      new google.maps.Point(0, 40));
+
+
+  // Add markers to the map
+
+  // Marker sizes are expressed as a Size of X,Y
+  // where the origin of the image (0,0) is located
+  // in the top left of the image.
+
+  // Origins, anchor positions and coordinates of the marker
+  // increase in the X direction to the right and in
+  // the Y direction down.
+
       function initialize() {
         var myOptions = {
-          zoom: 6,
+          zoom: 15,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(document.getElementById('map_canvas'),
             myOptions);
-
         // Try HTML5 geolocation
         if(navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = new google.maps.LatLng(position.coords.latitude,
+        pos = new google.maps.LatLng(position.coords.latitude,
                                              position.coords.longitude);
+        marker = new google.maps.Marker({
+        position: pos,
+        map: map,
+        title: 'Shri Bodas',
+        icon: blue_restaurant_image
+        });
 
-            var infowindow = new google.maps.InfoWindow({
-              map: map,
-              position: pos,
-              content: 'Location found using HTML5.'
-            });
 
+        google.maps.event.addListener(marker, 'click', (function(marker) {
+            return function() {
+            closeInfos();
+            var infowindow = new google.maps.InfoWindow();
+            infowindow.setContent('Shri Bodas <br/> <a href="http://www.google.com" >Google</a>');
+             infowindow.open(map, marker);
+             infos[0] = infowindow; 
+           }
+         })(marker));
             map.setCenter(pos);
+
+         for(var i=0; i < user_data.length; i++) {
+             pos = new google.maps.LatLng(user_data[i].lat,
+                                             user_data[i].long);
+             var user_info = user_data[i].name + "<br/> <a href='" + user_data[i].facebook_username +"' >Facebook</a><br/> <a href='" + user_data[i].googleplus_username +"' >Google+</a><br/> <a href='" + user_data[i].twitter_username +"' >Twitter</a>"; 
+             marker = new google.maps.Marker({
+                      position: pos,
+                      map: map,
+                      title: user_data[i].name,
+                      icon: blue_restaurant_image,
+                      content: user_info
+             });
+
+             google.maps.event.addListener(marker, 'click', (function(marker) {
+                 return function() {
+             closeInfos();
+            var infowindow = new google.maps.InfoWindow();
+            infowindow.setContent(this.content);
+             infowindow.open(map, this);
+             infos[0]=infowindow;
+             }
+         })(marker));
+         }
+
           }, function() {
             handleNoGeolocation(true);
           });
@@ -39,8 +95,27 @@
           // Browser doesn't support Geolocation
           handleNoGeolocation(false);
         }
+        // Set up our GMarkerOptions object
+  //      for(var i = 0; i < userdata.length; i++) {
+
+//        }
+
       }
 
+      function closeInfos(){
+ 
+   if(infos.length > 0){
+ 
+      /* detach the info-window from the marker */
+      infos[0].set("marker",null);
+ 
+      /* and close it */
+      infos[0].close();
+ 
+      /* blank the array */
+      infos.length = 0;
+   }
+}
       function handleNoGeolocation(errorFlag) {
         if (errorFlag) {
           var content = 'Error: The Geolocation service failed.';
@@ -64,9 +139,47 @@
 </head>
 <body>
   <div class="container">
-    <ul class="hmenu">
-      <%= render 'shared/navigation' %>
-    </ul>
+    <%= render 'shared/header' %>
+  </div>
+  
+  <div class="container">
+    <div class="hero-unit">
+        <h1>Pulses</h1>
+        <p>
+          How are you feeling today?
+        </p>
+        <% if user_signed_in? %>
+          <a class="btn btn-primary btn-large" href="#test" id="test">Answer a Question</a>
+        <% else %>
+        <%= link_to "Answer a Question", new_user_session_path, { :class => "btn btn-primary btn-large" } %>
+        <% end %>
+    </div>
+    
+    <div class="question">
+      <form accept-charset="UTF-8" action="/answers" class="answer" id="new_answer" method="post" novalidate="novalidate">
+      </form>
+    </div>
+    
+    <!-- <a href="#dialog" name="modal">Simple Modal Window</a> -->
+
+    <div id="boxes">
+
+
+        <!-- #customize your modal window here -->
+
+        <div id="dialog" class="window">
+            <b>Testing of Modal Window</b> | 
+
+            <!-- close button is defined as close class -->
+            <a href="#" class="close">Close it</a>
+
+        </div>
+
+
+        <!-- Do not remove div#mask, because you'll need it to fill the whole screen --> 
+        <div id="mask"></div>
+    </div>
+    
     <%- flash.each do |name, msg| -%>
       <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
     <%- end -%>

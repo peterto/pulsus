@@ -1,4 +1,7 @@
 <% if user_signed_in? %>
+  <li><a href="#test">Your Profile</a></li>
+  <li><a href="#friends">Your Friends</a></li>
+  <li><a href="#moods">Moods</a></li>
   <li>
   <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
   </li>
@@ -15,10 +18,13 @@
 <% end %>
 <% if user_signed_in? %>
   <li>
+  <!--
   <%= link_to('Edit account', edit_user_registration_path) %>
   </li>
+  -->
 <% else %>
   <li>
   <%= link_to('Sign up', new_user_registration_path)  %>
   </li>
 <% end %>
+

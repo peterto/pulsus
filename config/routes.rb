@@ -1,4 +1,6 @@
 Pulsus::Application.routes.draw do
+  resources :venues
+
   root :to => "home#index"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -9,6 +11,14 @@ Pulsus::Application.routes.draw do
 
   resources :users, :only => :show
   resources :authentications
+  devise_for :users
+
+  resources :users #, :only => :show    # resources :tests
+  resources :user_histories
+  resources :answers
+  resources :questions
+
+  # end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
