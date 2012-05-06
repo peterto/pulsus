@@ -36,7 +36,7 @@ class User
   validates_uniqueness_of :name, :username, :email, :case_sensitive => false
   attr_accessible :name, :username, :email, :password, :password_confirmation, :remember_me, :lat, :long, :venue, :mood
 
-  key :username
+  key :email
   references_many :answers
   
   field :twitter_username

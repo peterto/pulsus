@@ -116,7 +116,30 @@ var infowindow = new google.maps.InfoWindow();
     </div>
     
     <div class="question">
+      <form accept-charset="UTF-8" action="/answers" class="answer" id="new_answer" method="post" novalidate="novalidate">
+      </form>
     </div>
+    
+    <!-- <a href="#dialog" name="modal">Simple Modal Window</a> -->
+
+    <div id="boxes">
+
+
+        <!-- #customize your modal window here -->
+
+        <div id="dialog" class="window">
+            <b>Testing of Modal Window</b> | 
+
+            <!-- close button is defined as close class -->
+            <a href="#" class="close">Close it</a>
+
+        </div>
+
+
+        <!-- Do not remove div#mask, because you'll need it to fill the whole screen --> 
+        <div id="mask"></div>
+    </div>
+    
     <%- flash.each do |name, msg| -%>
       <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
     <%- end -%>

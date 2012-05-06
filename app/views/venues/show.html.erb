@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @venue.name %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @venue.lat %>
+</p>
+
+<p>
+  <b>Long:</b>
+  <%= @venue.long %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @venue.color %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @venue.type %>
+</p>
+
+<p>
+  <b>Yelp url:</b>
+  <%= @venue.yelp_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_venue_path(@venue) %> |
+<%= link_to 'Back', venues_path %>

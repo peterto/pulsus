@@ -11,6 +11,7 @@ gem 'paperclip', '~> 3.0'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-foursquare'
+gem 'httparty'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

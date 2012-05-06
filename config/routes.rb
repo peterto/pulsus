@@ -1,4 +1,6 @@
 Pulsus::Application.routes.draw do
+  resources :venues
+
   root :to => "home#index"
 
   devise_for :users
