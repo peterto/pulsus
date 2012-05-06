@@ -10,12 +10,21 @@
 
     <script type="text/javascript">
       var map;
-
+      var color = {};
+      color['0']= "Black"; 
+      color['1']= "Purple"; 
+      color['2']= "Blue"; 
+      color['3']= "Green"; 
+      color['4']= "Yellow"; 
+      color['5']= "Orange"; 
+      color['6']= "Red"; 
+      color['7']= "White"; 
       var marker;
       var pos;
       var user_data = <%= @users.to_json.to_s.html_safe %>;
+      var venues_data = <%= @venues.to_json.to_s.html_safe %>;
       var infos = [];
-      var blue_restaurant_image = new google.maps.MarkerImage('http://dl.dropbox.com/u/42883507/blue_restaurant.png',
+      var blue_restaurant_image = new google.maps.MarkerImage('http://dl.dropbox.com/u/42883507/People_Black.png',
       new google.maps.Size(32, 40),
       // This marker is 20 pixels wide by 32 pixels tall.
       // The origin for this image is 0,0.
@@ -66,15 +75,54 @@
             map.setCenter(pos);
 
          for(var i=0; i < user_data.length; i++) {
+      var person_url = "http://dl.dropbox.com/u/42883507/People_"+color[user_data[i].mood]+".png";
+      var person_image = new google.maps.MarkerImage(person_url,
+      new google.maps.Size(32, 40),
+      // This marker is 20 pixels wide by 32 pixels tall.
+      // The origin for this image is 0,0.
+      new google.maps.Point(0,0),
+      // The anchor for this image is the base of the flagpole at 0,32.
+      new google.maps.Point(0, 40));
              pos = new google.maps.LatLng(user_data[i].lat,
                                              user_data[i].long);
-             var user_info = user_data[i].name + "<br/> <a href='" + user_data[i].facebook_username +"' >Facebook</a><br/> <a href='" + user_data[i].googleplus_username +"' >Google+</a><br/> <a href='" + user_data[i].twitter_username +"' >Twitter</a>"; 
+             var user_info = user_data[i].name + "<br/> <a href='" + user_data[i].facebook_username +"' >Facebook</a><br/> <a href='" + user_data[i].googleplus_username +"' >Google+</a><br/> <a href='" + user_data[i].twitter_username +"' >Twitter</a></br>" + person_url; 
              marker = new google.maps.Marker({
                       position: pos,
                       map: map,
                       title: user_data[i].name,
-                      icon: blue_restaurant_image,
+                      icon: person_image,
                       content: user_info
+             });
+
+             google.maps.event.addListener(marker, 'click', (function(marker) {
+                 return function() {
+             closeInfos();
+            var infowindow = new google.maps.InfoWindow();
+            infowindow.setContent(this.content);
+             infowindow.open(map, this);
+             infos[0]=infowindow;
+             }
+         })(marker));
+         }
+
+         for(var i=0; i < venues_data.length; i++) {
+      var img_url = "http://dl.dropbox.com/u/42883507/"+venues_data[i].type + "_" + color[venues_data[i].color] + ".png"; 
+      var venue_image = new google.maps.MarkerImage(img_url,
+      new google.maps.Size(32, 40),
+      // This marker is 20 pixels wide by 32 pixels tall.
+      // The origin for this image is 0,0.
+      new google.maps.Point(0,0),
+      // The anchor for this image is the base of the flagpole at 0,32.
+      new google.maps.Point(0, 40));
+             pos = new google.maps.LatLng(venues_data[i].lat,
+                                             venues_data[i].long);
+             var venue_info = venues_data[i].name + "<br/> <a href='" + venues_data[i].yelp_url +"' >Yelp</a>"; 
+             marker = new google.maps.Marker({
+                      position: pos,
+                      map: map,
+                      title: venues_data[i].name,
+                      icon: venue_image,
+                      content: venue_info
              });
 
              google.maps.event.addListener(marker, 'click', (function(marker) {
