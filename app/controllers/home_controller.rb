@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @venues, json: @users }
+      format.json { render json: @venues }
     end
   end
 end
