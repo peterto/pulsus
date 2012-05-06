@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <li><a href="#test">Your Profile</a></li>
+  <li><%= link_to('Your account', user_path(current_user)) %></li>
   <li><a href="#friends">Your Friends</a></li>
   <li><a href="#moods">Moods</a></li>
   <li>
@@ -27,4 +27,3 @@
   <%= link_to('Sign up', new_user_registration_path)  %>
   </li>
 <% end %>
-

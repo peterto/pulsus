@@ -66,15 +66,15 @@ class User
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
+    puts "************** DATA #{data.to_json} ***************"
 
     user = User.first(conditions: {email: data.email})
     unless user.nil?
       user
     else # Create a user with a stub password.
-      user = self.create!(:email => data.email, :name => data.name, :password => Devise.friendly_token[0,20])
+      user = self.create!(:email => data.email, :name => data.name, :username => data.username, :password => Devise.friendly_token[0,20])
       user.facebook = access_token
-      user.auth_type = :facebook
-      user.save
+      user.update_attribute :auth_type, :facebook
       user
     end
   end
@@ -87,20 +87,12 @@ class User
       user
     else # Create a user with a stub password.
       name = "#{data.firstName} #{data.lastName}"
-      user = self.create!(:email => data.contact.email, :name => name, :password => Devise.friendly_token[0,20])
-      user.auth_type = :foursquare
+      user = self.create!(:email => data.contact.email, :name => name, :username => data.id, :password => Devise.friendly_token[0,20])
+      user.facebook = data
+      user.update_attribute :auth_type, :foursquare
+      user
     end
   end
-
-  # def self.new_with_session(params, session)
-  #   super.tap do |user|
-  #
-  #     if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-  #       user.email = data["email"]
-  #       user.facebook = session
-  #     end
-  #   end
-  # end
 
   def facebook_info
     facebook['extra']['raw_info']
