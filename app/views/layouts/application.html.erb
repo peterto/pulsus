@@ -68,19 +68,21 @@
          for(var i=0; i < user_data.length; i++) {
              pos = new google.maps.LatLng(user_data[i].lat,
                                              user_data[i].long);
+             var user_info = user_data[i].name + "<br/> <a href='" + user_data[i].facebook_username +"' >Facebook</a><br/> <a href='" + user_data[i].googleplus_username +"' >Google+</a><br/> <a href='" + user_data[i].twitter_username +"' >Twitter</a>"; 
              marker = new google.maps.Marker({
                       position: pos,
                       map: map,
                       title: user_data[i].name,
-                      icon: blue_restaurant_image
+                      icon: blue_restaurant_image,
+                      content: user_info
              });
-             var user_info = user_data[i].name + "<br/> <a href='" + user_data[i].facebook_username +"' >Facebook</a><br/> <a href='" + user_data[i].googleplus_username +"' >Google+</a><br/> <a href='" + user_data[i].twitter_username +"' >Twitter</a>"; 
+
              google.maps.event.addListener(marker, 'click', (function(marker) {
                  return function() {
              closeInfos();
             var infowindow = new google.maps.InfoWindow();
-            infowindow.setContent(user_info);
-             infowindow.open(map, marker);
+            infowindow.setContent(this.content);
+             infowindow.open(map, this);
              infos[0]=infowindow;
              }
          })(marker));
