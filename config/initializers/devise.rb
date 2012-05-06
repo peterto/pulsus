@@ -4,6 +4,11 @@ require 'omniauth-facebook'
 require 'omniauth-foursquare'
 
 Devise.setup do |config|
+
+  config.omniauth :facebook, '444394772243033', '7196e1ee42c90eec4229b2611b46a939', :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
+
+  config.omniauth :foursquare, "BQTZGEA3JDOBEBRA2DVKUXLKFJUXZOYER4U1LYS35VYY0FJK", "151UFA5TPSFWZEQLHYL2RJMTJLWCGQQYWCVQUKZH43NDWSGZ"
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.

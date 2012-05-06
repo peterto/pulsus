@@ -1,1 +1,30 @@
 <p>User: <%= @user.name %></p>
+
+<% if @user.authtype == :facebook %>
+
+  <%= image_tag @user.facebook['info']['image'], :title => @user.facebook['info']['name'], :class => "facebook" %>
+
+  <p>
+  <%= @user.facebook_info['location']['name'] %><br />
+  <%= @user.facebook_info['location']['id'] %>
+  </p>
+
+  <pre>Location ID: <%= @user.facebook_info['location']['id'] %></pre>
+  <pre><%= @user.facebook %></pre>
+
+<% end %>
+
+<% if @user.authtype == :foursquare %>
+
+  <%= image_tag @user.facebook['info']['image'], :title => @user.facebook['info']['name'], :class => "facebook" %>
+
+  <p>
+  <%= @user.facebook_info['location']['name'] %><br />
+  <%= @user.facebook_info['location']['id'] %>
+  </p>
+
+  <pre>Location ID: <%= @user.facebook_info['location']['id'] %></pre>
+  <pre><%= @user.facebook %></pre>
+
+<% end %>
+
