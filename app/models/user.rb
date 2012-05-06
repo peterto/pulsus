@@ -26,9 +26,22 @@ class User
   field :last_sign_in_ip,    :type => String
   
   field :name
-  validates_presence_of :name
-  validates_uniqueness_of :name, :email, :case_sensitive => false
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  field :username
+  field :color
+  field :mood
+  field :lat
+  field :long
+  field :venue
+  validates_presence_of :name, :username
+  validates_uniqueness_of :name, :username, :email, :case_sensitive => false
+  attr_accessible :name, :username, :email, :password, :password_confirmation, :remember_me, :lat, :long, :venue, :mood
+
+  key :username
+  references_many :answers
+  
+  field :twitter_username
+  field :googleplus_username
+  field :facebook_username
 
   ## Encryptable
   # field :password_salt, :type => String

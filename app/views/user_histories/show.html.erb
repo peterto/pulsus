@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Long:</b>
+  <%= @user_history.long %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @user_history.lat %>
+</p>
+
+<p>
+  <b>Mood:</b>
+  <%= @user_history.mood %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_history_path(@user_history) %> |
+<%= link_to 'Back', user_histories_path %>
