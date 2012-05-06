@@ -12,6 +12,18 @@
       var map;
 
       var marker;
+      
+      var user_data = <%= @users.to_json.to_s.html_safe %>;
+      
+      var blue_restaurant_image = new google.maps.MarkerImage('http://dl.dropbox.com/u/42883507/blue_restaurant.png',
+      new google.maps.Size(32, 40),
+      // This marker is 20 pixels wide by 32 pixels tall.
+      // The origin for this image is 0,0.
+      new google.maps.Point(0,0),
+      // The anchor for this image is the base of the flagpole at 0,32.
+      new google.maps.Point(0, 40));
+
+
   // Add markers to the map
 
   // Marker sizes are expressed as a Size of X,Y
@@ -21,23 +33,14 @@
   // Origins, anchor positions and coordinates of the marker
   // increase in the X direction to the right and in
   // the Y direction down.
-//    var userdata = = <%= @json.to_s.html_safe %> ;
-//      var userdata = { "Restaurant" : [
+
       function initialize() {
         var myOptions = {
-          zoom: 10,
+          zoom: 15,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(document.getElementById('map_canvas'),
             myOptions);
-        var image = new google.maps.MarkerImage('http://dl.dropbox.com/u/42883507/townhouse.png',
-      // This marker is 20 pixels wide by 32 pixels tall.
-      new google.maps.Size(32, 40),
-      // The origin for this image is 0,0.
-      new google.maps.Point(0,0),
-      // The anchor for this image is the base of the flagpole at 0,32.
-      new google.maps.Point(0, 40));
-
         // Try HTML5 geolocation
         if(navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -47,17 +50,21 @@
         position: pos,
         map: map,
         title: 'Shri Bodas',
-        icon: image
+        icon: blue_restaurant_image
         });
         var infowindow = new google.maps.InfoWindow();
 
         google.maps.event.addListener(marker, 'click', (function(marker) {
             return function() {
-            infowindow.setContent('Shri Bodas <br/> <a href="www.google.com" >Google</a>');
+            infowindow.setContent('Shri Bodas <br/> <a href="http://www.google.com" >Google</a>');
              infowindow.open(map, marker);
            }
          })(marker));
             map.setCenter(pos);
+
+         for(var i=0; i < user_data.length; i++){
+         
+}
           }, function() {
             handleNoGeolocation(true);
           });
